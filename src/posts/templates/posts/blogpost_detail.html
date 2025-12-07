@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+
+    <article>
+        <h1>{{ post.title }}</h1>
+        {% with post.created_at|date:'j F Y' as creation_date %}
+            <h5>
+                Publié par
+                <i>
+                    {% if post.author %}
+                        {{ post.author.username }}
+                    {% else %}
+                        anonyme
+                    {% endif %}
+                </i>
+                {% if creation_date %}
+                    le {{ creation_date }}
+                {% else %}
+                    - date non renseignée -
+                {% endif %}
+            </h5>
+        {% endwith %}
+        <p>{{ post.content|linebreaks|safe }}</p>
+    </article>
+
+{% endblock %}

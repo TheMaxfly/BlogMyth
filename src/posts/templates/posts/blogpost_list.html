@@ -11,7 +11,14 @@
             <h2>{{ post.title }}</h2>
             {% with post.created_at|date:'j F Y' as creation_date %}
                 <h5>
-                    Publié par <i>{{ post.author.username }}</i>
+                    Publié par
+                    <i>
+                        {% if post.author %}
+                            {{ post.author.username }}
+                        {% else %}
+                            anonyme
+                        {% endif %}
+                    </i>
                     {% if creation_date %}
                         le {{ creation_date }}
                     {% else %}
