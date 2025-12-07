@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -36,3 +37,11 @@ class BlogPostDetail(DetailView):
     model = BlogPost
     context_object_name = "post"
     template_name = "posts/blogpost_detail.html"
+
+
+class BlogPostDelete(DeleteView):
+    model = BlogPost
+    context_object_name = "post"
+    template_name = "posts/blogpost_delete.html"
+    success_url = reverse_lazy("posts:home")
+    

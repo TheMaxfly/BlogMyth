@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>MytheBlog - Suppression d'article</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Suppression d'article</h1>
+
+    {% with post|default:object as target_post %}
+        <form method="post">
+            {% csrf_token %}
+            <p>Confirmez la suppression de l'article "{{ target_post }}" ?</p>
+            <p>
+                <strong>Début de l'article :</strong>
+                {{ target_post.content|default_if_none:''|truncatewords:40 }}
+            </p>
+            <button type="submit">Supprimer</button>
+        </form>
+    {% endwith %}
+
+{% endblock %}
