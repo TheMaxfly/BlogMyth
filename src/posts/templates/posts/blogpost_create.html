@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>MytheBlog - Création d'article</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Création d'article</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Publier</button>
+    </form>
+
+{% endblock %}

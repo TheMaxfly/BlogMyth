@@ -2,6 +2,7 @@ from typing import Iterable
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
+from django.urls import reverse
 
 # Create your models here.
 
@@ -42,3 +43,6 @@ class BlogPost(models.Model):
        
         return self.author.username if self.author else "Auteur Anonyme"
     
+
+    def get_absolute_url(self):
+        return reverse("posts:home")

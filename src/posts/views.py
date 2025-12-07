@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 
@@ -15,3 +16,12 @@ class BlogHome(ListView):
         if self.request.user.is_authenticated:
             return queryset
         return queryset.filter(published=True)
+    
+
+class BlogPostCreate(CreateView):
+    model = BlogPost
+    template_name = "posts/blogpost_create.html"
+    fields = ["title", "content",]
+
+
+
