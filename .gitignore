@@ -1,0 +1,45 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.pyo
+*.pyd
+*.so
+*.egg-info
+build/
+dist/
+wheels/
+
+# Django / runtime artifacts
+*.log
+*.pot
+*.py,cover
+*.mo
+db.sqlite3
+media/
+staticfiles/
+
+# Testing / type checking
+.coverage*
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# Python version managers
+.python-version
+
+# Environment variables
+.env
+.env.*
