@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <article>
+    <article class="post-detail">
         <h1>{{ post.title }}</h1>
         {% with post.created_at|date:'j F Y' as creation_date %}
             <h5>
@@ -25,7 +25,9 @@
                 {% endif %}
             </h5>
         {% endwith %}
-        <p>{{ post.content|linebreaks|safe }}</p>
+        <div class="post-detail-content">
+            {{ post.content|linebreaks|safe }}
+        </div>
     </article>
 
 {% endblock %}

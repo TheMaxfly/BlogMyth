@@ -12,7 +12,6 @@ from .models import BlogPost
 
 class BlogHome(ListView):
     model = BlogPost
-    template_name = "index.html"
     context_object_name = "posts"
 
     def get_queryset(self):

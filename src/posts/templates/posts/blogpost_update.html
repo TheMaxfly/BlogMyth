@@ -7,10 +7,31 @@
 {% block content %}
     <h1>Modification d'article</h1>
 
-    <form method="post">
+    <form method="post" class="post-form">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Modifier</button>
+        {{ form.non_field_errors }}
+
+        <div class="form-field">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+
+        <div class="form-field">
+            {{ form.content.label_tag }}
+            {{ form.content }}
+            {{ form.content.errors }}
+        </div>
+
+        <div class="form-checkbox">
+            {{ form.published }}
+            <label for="{{ form.published.id_for_label }}">
+                {{ form.published.label }}
+            </label>
+        </div>
+        {{ form.published.errors }}
+
+        <button type="submit" class="bt btn-submit">Modifier</button>
     </form>
 
 {% endblock %}

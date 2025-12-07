@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Suppression d'article</h1>
+    <h1 class="delete-title">Suppression d'article</h1>
 
     {% with post|default:object as target_post %}
         <form method="post">
             {% csrf_token %}
-            <p>Confirmez la suppression de l'article "{{ target_post }}" ?</p>
-            <p>
+            <p>Confirmez la suppression de l'article "<strong>{{ target_post }}</strong>" ?</p>
+            <p class="delete-excerpt">
                 <strong>Début de l'article :</strong>
                 {{ target_post.content|default_if_none:''|truncatewords:40 }}
             </p>
-            <button type="submit">Supprimer</button>
+            <button type="submit" class="bt btn-delete">Supprimer</button>
         </form>
     {% endwith %}
 
