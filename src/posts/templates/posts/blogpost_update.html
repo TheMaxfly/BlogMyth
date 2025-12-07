@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>MytheBlog - Modification d'article</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Modification d'article</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Modifier</button>
+    </form>
+
+{% endblock %}
