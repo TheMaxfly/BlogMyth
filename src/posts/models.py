@@ -22,6 +22,7 @@ class BlogPost(models.Model):
         help_text="Contenu de votre article",
         
     )
+    thumbnail = models.ImageField(blank=True, upload_to="blog")
 
     class Meta:
         ordering = ["-created_at"]
